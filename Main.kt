@@ -1,27 +1,19 @@
 package connectfour
-
-fun main(){
-    var tabla = Tablero()
+fun main() {
     println("Connect Four")
     println("First player's name:")
-    tabla.jugador1Setter(readln())
+    val fname = readln()
     println("Second player's name:")
-    tabla.jugador2Setter(readln())
-    while (tabla.legalGetter().not()){
+    val sname = readln()
+    var seg = true
+    var vali = Triple(false, 0,0)
+    while (seg){
         println("Set the board dimensions (Rows x Columns)\n" +
                 "Press Enter for default (6 x 7)")
-        tabla.dimensionSetter(validartablero( readln()))
+        vali=validartablero( readln())
+        seg=vali.first.not()
     }
-
-    println("${tabla.jugador1Getter()} VS ${tabla.jugador2Getter()}\n" +
-            "${tabla.filaGetter()} X ${tabla.columnaGetter()} board")
-    tabla.primerarmar()
-    while (true) {
-        tabla.armar()
-        //tabla.printabla()
-        tabla.quienjuega()
-        while (tabla.jugada(readln())){
-            tabla.quienjuega()
-        }
-    }
+    println("$fname VS $sname\n" +
+            "${vali.second} X ${vali.third} board")
+    artabla(vali.second,vali.third)
 }
