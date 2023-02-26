@@ -1,17 +1,26 @@
 package connectfour
 
-fun artabla(x:Int, y:Int) {
+fun artabla(fila:Int, columna:Int,arr:Array<IntArray>) {
     var i = 0
     var j = 0
-    while (i<y){
+    while (i<columna){
         print(" ${i+1}")
         i++
     }
     print("\n")
-    while (j<x){
+    while (j<fila){
         i=0
-        while (i<=y){
-            print("║ ")
+        while (i<=columna){
+            print("║")
+            if (i<columna) {
+                if (arr[j][i] == 0) {
+                    print(" ")
+                } else if (arr[j][i] == 1) {
+                    print("*")
+                } else {
+                    print("o")
+                }
+            }
             i++
         }
         print("\n")
@@ -19,9 +28,9 @@ fun artabla(x:Int, y:Int) {
     }
     print("╚")
     j=0
-    while (j<y-1){
+    while (j<columna-1){
         print("═╩")
         j++
     }
-    print("═╝")
+    print("═╝\n")
 }
