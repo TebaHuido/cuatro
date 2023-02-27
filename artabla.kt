@@ -16,9 +16,9 @@ fun artabla(fila:Int, columna:Int,arr:Array<IntArray>) {
                 if (arr[j][i] == 0) {
                     print(" ")
                 } else if (arr[j][i] == 1) {
-                    print("*")
-                } else {
                     print("o")
+                } else {
+                    print("*")
                 }
             }
             i++
